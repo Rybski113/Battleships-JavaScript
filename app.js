@@ -79,5 +79,8 @@ function addShipPiece(ship) {
         shipBlock.classList.add(ship.name)
         shipBlock.classList.add('taken')
     })
+
+
+    
 }
-addShipPiece(destroyer)
+ships.forEach(ship => addShipPiece(ship)) 
