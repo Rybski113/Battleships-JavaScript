@@ -57,3 +57,10 @@ const battleship = new Ship('battleship', 4)
 const carrier = new Ship('carrier', 5)
 
 const ships = [destroyer, submarine, cruiser, battleship, cruiser]
+
+function addShipPiece() {
+    const allBoardBlocks = document.querySelectorAll('#computer div')
+    let randomStartIndex = Math.floor(Math.random() * width * width)
+    console.log(randomStartIndex)
+}
+addShipPiece()
