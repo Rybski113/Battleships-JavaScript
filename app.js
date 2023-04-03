@@ -61,7 +61,7 @@ const ships = [destroyer, submarine, cruiser, battleship, cruiser]
 function addShipPiece(ship) {
     const allBoardBlocks = document.querySelectorAll('#computer div')
     let randomBolean = Math.random() < 0.5
-    let isHorizontal = false
+    let isHorizontal = randomBolean
     let randomStartIndex = Math.floor(Math.random() * width * width)
     console.log(randomStartIndex)
 
@@ -75,6 +75,9 @@ function addShipPiece(ship) {
         }
     }
 
-    console.log(shipBlocks)
+    shipBlocks.forEach(shipBlock => {
+        shipBlock.classList.add(ship.name)
+        shipBlock.classList.add('taken')
+    })
 }
 addShipPiece(destroyer)
