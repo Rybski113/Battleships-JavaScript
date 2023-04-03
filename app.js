@@ -40,3 +40,14 @@ createBoard('yellow', 'player')
 createBoard('pink', 'computer')
 
 flipButton.addEventListener('click', flip)
+
+// Creating ships
+
+class Ship {
+    constructor(name, length) {
+        this.name = name
+        this.length = length
+    }
+}
+
+const destroyer = new Ship('destroyer', 2) 
