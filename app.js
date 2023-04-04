@@ -58,20 +58,25 @@ const carrier = new Ship('carrier', 5)
 
 const ships = [destroyer, submarine, cruiser, battleship, cruiser]
 
+
 function addShipPiece(ship) {
     const allBoardBlocks = document.querySelectorAll('#computer div')
-    let randomBolean = Math.random() < 0.5
-    let isHorizontal = randomBolean
+    let randomBoolean = Math.random() < 0.5
+    let isHorizontal = randomBoolean
     let randomStartIndex = Math.floor(Math.random() * width * width)
-    console.log(randomStartIndex)
+    
+
+     let validStart = isHorizontal ? randomStartIndex <= width * width - ship.length ? randomStartIndex : width * width - ship.length : 
+     // handle vertical
+     randomStartIndex <= width * width - width * ship.length ? randomStartIndex : randomStartIndex - ship.length * width + width
 
     let shipBlocks = []
 
     for (let i = 0; i < ship.length; i ++) {
         if (isHorizontal) {
-            shipBlocks.push(allBoardBlocks[Number(randomStartIndex) + i])
+            shipBlocks.push(allBoardBlocks[Number(validStart) + i])
         } else {
-            shipBlocks.push(allBoardBlocks[Number(randomStartIndex) + i * width])
+            shipBlocks.push(allBoardBlocks[Number(validStart) + i * width])
         }
     }
 
